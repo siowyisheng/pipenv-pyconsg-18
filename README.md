@@ -8,10 +8,12 @@ Python package manager for virtual environments. It creates a virtualenv in a st
 
 
 ## Usage
-### Setup new project
-| Task          | With virtualenvwrapper | __With pipenv__   |
+### Setup new project or project on new machine
+| Task | Task          | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
 | Setup new virtualenv | $ mkvirtualenv [project] | $ pipenv (--three OR --two) |
+| Install all packages in a virtualenv | $ pip install -r requirements.txt | $ pipenv install --dev |
+| Install non-dev packages in a virtualenv | _not able_ | $ pipenv install |
 
 
 ### Work on project
@@ -21,25 +23,12 @@ Python package manager for virtual environments. It creates a virtualenv in a st
 | Deactivate the virtualenv | $ deactivate | $ exit |
 
 
-### Install all project packages
-| Task          | With virtualenvwrapper | __With pipenv__   |
-|---------------|---------------|-------|
-| Install all packages in a virtualenv | $ pip install -r requirements.txt | $ pipenv install --dev |
-| Install non-dev packages in a virtualenv | _not able_ | $ pipenv install |
-
-
-### Add package
+### Add or remove package
 | Task          | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
 | Install a project dependency | (activated) $ pip install (package) | $ pipenv install (package) |
 | Install a project dev dependency | _not able_ | $ pipenv install pytest --dev |
 | Install local package | $ pip install (path) | $ pipenv install -e (path) |
-* Note: pipenv automatically adds the new package to the Pipfile.
-
-
-### Remove package
-| Task          | With virtualenvwrapper | __With pipenv__   |
-|---------------|---------------|-------|
 | Remove a project dependency and sub-dependencies | _not able_ | $ pipenv uninstall [package] |
 | Remove a project dependency only | (activated) $ pip uninstall (package) | (activated) $ pip uninstall (package) |
 | Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
