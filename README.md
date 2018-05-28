@@ -1,5 +1,4 @@
-![pipenv logo](https://i.imgur.com/Y2olQV5.png "logo text")
-# Pipenv
+![pipenv logo](https://i.imgur.com/R1qf6Vw.png "logo text")
 Package manager for virtual environments creates a virtualenv in a standard location. It automatically adds/removes packages to a Pipfile when they are un/installed.
 
 
