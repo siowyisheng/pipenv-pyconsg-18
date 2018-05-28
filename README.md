@@ -6,11 +6,29 @@ Automatically adds/removes packages to a Pipfile when they are un/installed.
 #### `Pipfile` becomes the development `requirements.txt`
 #### `Pipfile.lock` becomes the production `requirements.txt`
 
+
+## Most common tasks
 | Task          | With virtualenvwrapper | With pipenv   |
 |---------------|---------------|-------|
-| Setup new virtual environment | $ mkvirtualenv [project] | $ pipenv (--three|--two) |
-| Activate the virtual environment | $ workon [project] | $ pipenv shell |
-| Install non-dev packages in a virtual environment | _not able_ | $ pipenv install |
+| Setup new virtualenv | $ mkvirtualenv [project] | $ pipenv (--three|--two) |
+| Activate the virtualenv | $ workon [project] | $ pipenv shell |
+| Install non-dev packages in a virtualenv | _not able_ | $ pipenv install |
+| Install all packages in a virtualenv | $ pip install -r requirements.txt | $ pipenv install --dev |
+| Get a list of top-level dependencies | _not able_ | $ pipenv graph |
+| Install a project dependency | (activated) $ pip install (package) | (activated) $ pip install (package) |
+| Install a project dev dependency | _not able_ | $ pipenv install pytest --dev |
+| Remove a project dependency only | (activated) $ pip uninstall  | (activated) $ pip uninstall |
+| Remove a project dependency and sub-dependencies | _not able_ | $ pipenv uninstall [module] |
+| Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
+| Fix project dependencies | $ pip freeze > requirements.txt | $ pipenv lock |
+
+
+## Other tasks
+| Task          | With virtualenvwrapper | With pipenv   |
+|---------------|---------------|-------|
+| Install local package | $ pip install (path) | $ pipenv install -e (path) |
+| Locate the virtualenv | $ workon [project] | $ pipenv --venv |
+| Locate the Python interpreter | _not able_ | $ pipenv --py |
 | Install all packages in a virtual environment | $ pip install -r requirements.txt | $ pipenv install --dev |
 | Get a list of top-level dependencies | _not able_ | $ pipenv graph |
 | Install a project dependency | (activated) $ pip install (package) | (activated) $ pip install (package) |
@@ -20,49 +38,11 @@ Automatically adds/removes packages to a Pipfile when they are un/installed.
 | Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
 | Fix project dependencies | $ pip freeze > requirements.txt | $ pipenv lock |
 
-$ pipenv graph
-$ pipenv install -e
-$ pipenv install pytest --dev
-$ pipenv uninstall 
-
-
-## Setup New Virtual Environment
-pipenv --three
-pipenv --two
-pipenv --python 3.6|2.7
-
-pipenv lock
-pipenv shell
-pipenv freeze
-
-Locate the virtualenv:
-
-$ pipenv --venv
-
-Locate the Python interpreter:
-
-$ pipenv --py
-
 
 ## Need
 * Update top-level dependencies
 * Fix all production dependencies
 
-## Setup
-
-
-## Basic Usage
+## Troubleshootings
 ### Windows
-FAILS on git bash
-cmd
-powershell
-cmder
-
-### Mac
-
-### Linux
-
-
-
-## Troubleshooting
-
+Pipenv fails on Git Bash [github issue](https://github.com/pypa/pipenv/issues/970). Instead, use powershell, cmd, cmder or another shell.
