@@ -9,7 +9,7 @@ Pipfile.lock
 replace requirements.txt
 
 | Task          | Old           | New   |
-| ------------- |:-------------:| -----:|
+|---------------|---------------|-------|
 | Setup new virtual environment | right-aligned | $1600 |
 | Install packages in a virtual environment | centered      |   $12 |
 | Get a list of top-level dependencies | are neat      | $ pipenv graph |
