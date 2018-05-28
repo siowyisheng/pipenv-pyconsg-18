@@ -12,13 +12,24 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 * Fix all production dependencies
 
 
-## Most common tasks
-| Task          | With virtualenvwrapper | With pipenv   |
+### Setup new project
+| Task          | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
 | Setup new virtualenv | $ mkvirtualenv [project] | $ pipenv (--three|--two) |
+
+### Work on project
+| Task          | With virtualenvwrapper | __With pipenv__   |
+|---------------|---------------|-------|
 | Activate the virtualenv | $ workon [project] | $ pipenv shell |
+| Deactivate the virtualenv | $ deactivate | $ deactivate |
+
+### Install all project packages
+| Task          | With virtualenvwrapper | __With pipenv__   |
+|---------------|---------------|-------|
 | Install non-dev packages in a virtualenv | _not able_ | $ pipenv install |
 | Install all packages in a virtualenv | $ pip install -r requirements.txt | $ pipenv install --dev |
+
+### Add packages
 | Get a list of top-level dependencies | _not able_ | $ pipenv graph |
 | Install a project dependency | (activated) $ pip install (package) | (activated) $ pip install (package) |
 | Install a project dev dependency | _not able_ | $ pipenv install pytest --dev |
