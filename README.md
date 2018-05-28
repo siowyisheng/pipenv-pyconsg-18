@@ -29,7 +29,7 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 | Install all packages in a virtualenv | $ pip install -r requirements.txt | $ pipenv install --dev |
 | Install non-dev packages in a virtualenv | _not able_ | $ pipenv install |
 
-### Add packages
+### Add package
 | Task          | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
 | Install a project dependency | (activated) $ pip install (package) | (activated) $ pip install (package) |
@@ -37,30 +37,26 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 | Install local package | $ pip install (path) | $ pipenv install -e (path) |
 * Note: pipenv automatically adds the new package to the Pipfile.
 
-### Other tasks
+### Remove package
 | Task          | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
-| Get a list of top-level dependencies | _not able_ | $ pipenv graph |
-| Remove a project dependency only | (activated) $ pip uninstall  | (activated) $ pip uninstall |
 | Remove a project dependency and sub-dependencies | _not able_ | $ pipenv uninstall [module] |
+| Remove a project dependency only | (activated) $ pip uninstall  | (activated) $ pip uninstall |
 | Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
-| Fix project dependencies | $ pip freeze > requirements.txt | $ pipenv lock |
+* Note: pipenv automatically removes the removed packages from the Pipfile.
+
+### Freeze dependencies for production
+| Task          | With virtualenvwrapper | __With pipenv__   |
+|---------------|---------------|-------|
+| Freeze project dependencies | $ pip freeze > requirements.txt | $ pipenv lock |
 
 
-## Other tasks
-| Task          | With virtualenvwrapper | With pipenv   |
+### Upgrade project dependencies
+| Task          | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
 | Upgrade project dependencies | _not able_ | $ pipenv update |
-| Locate the virtualenv | $ workon [project] | $ pipenv --venv |
-| Locate the Python interpreter | _not able_ | $ pipenv --py |
-| Install all packages in a virtual environment | $ pip install -r requirements.txt | $ pipenv install --dev |
-| Get a list of top-level dependencies | _not able_ | $ pipenv graph |
-| Install a project dependency | (activated) $ pip install (package) | (activated) $ pip install (package) |
-| Install a project dev dependency | _not able_ | $ pipenv install pytest --dev |
-| Remove a project dependency only | (activated) $ pip uninstall  | (activated) $ pip uninstall |
-| Remove a project dependency and its sub-dependencies | _not able_ | $ pipenv uninstall [module] |
-| Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
-| Fix project dependencies | $ pip freeze > requirements.txt | $ pipenv lock |
+| List project outdated dependencies | _not able_ | $ pipenv update --outdated |
+| List project direct dependencies | _not able_ | $ pipenv graph |
 
 
 ## Troubleshooting
