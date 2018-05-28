@@ -36,7 +36,7 @@ Different projects require different versions of python and different package ve
 | Remove a project dependency and sub-dependencies | _not able_ | $ pipenv uninstall [package] |
 | Remove a project dependency only | (activated) $ pip uninstall (package) | (activated) $ pip uninstall (package) |
 | Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
-* Note: pipenv automatically removes the removed packages from the Pipfile.
+* Note: pipenv automatically adds or removes the packages from the Pipfile.
 
 
 ### Freeze dependencies for production
