@@ -27,10 +27,10 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 | Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
 | Fix project dependencies | $ pip freeze > requirements.txt | $ pipenv lock |
 
-
 ## Other tasks
 | Task          | With virtualenvwrapper | With pipenv   |
 |---------------|---------------|-------|
+| Upgrade project dependencies | _not able_ | $ pipenv update |
 | Install local package | $ pip install (path) | $ pipenv install -e (path) |
 | Locate the virtualenv | $ workon [project] | $ pipenv --venv |
 | Locate the Python interpreter | _not able_ | $ pipenv --py |
@@ -44,6 +44,6 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 | Fix project dependencies | $ pip freeze > requirements.txt | $ pipenv lock |
 
 
-## Troubleshootings
+## Troubleshooting
 ### Windows
 Pipenv fails on Git Bash [github issue](https://github.com/pypa/pipenv/issues/970). Instead, use powershell, cmd, cmder or another shell.
