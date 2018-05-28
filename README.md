@@ -3,8 +3,13 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 
 
 ## Concept
-`Pipfile` becomes the development `requirements.txt`
-`Pipfile.lock` becomes the production `requirements.txt`
+* `Pipfile` becomes the development `requirements.txt`
+* `Pipfile.lock` becomes the production `requirements.txt`
+
+
+## Need
+* Update top-level dependencies
+* Fix all production dependencies
 
 
 ## Most common tasks
@@ -38,10 +43,6 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 | Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
 | Fix project dependencies | $ pip freeze > requirements.txt | $ pipenv lock |
 
-
-## Need
-* Update top-level dependencies
-* Fix all production dependencies
 
 ## Troubleshootings
 ### Windows
