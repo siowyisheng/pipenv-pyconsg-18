@@ -35,7 +35,7 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 | Install a project dependency | (activated) $ pip install (package) | (activated) $ pip install (package) |
 | Install a project dev dependency | _not able_ | $ pipenv install pytest --dev |
 | Install local package | $ pip install (path) | $ pipenv install -e (path) |
-Note: pipenv automatically adds the new package to the Pipfile.
+* Note: pipenv automatically adds the new package to the Pipfile.
 
 ### Other tasks
 | Task          | With virtualenvwrapper | __With pipenv__   |
