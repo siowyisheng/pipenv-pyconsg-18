@@ -21,7 +21,7 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 | Task          | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
 | Activate the virtualenv | $ workon [project] | $ pipenv shell |
-| Deactivate the virtualenv | $ deactivate | $ deactivate |
+| Deactivate the virtualenv | $ deactivate | $ exit|Ctrl+D |
 
 ### Install all project packages
 | Task          | With virtualenvwrapper | __With pipenv__   |
