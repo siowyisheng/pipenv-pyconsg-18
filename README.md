@@ -9,7 +9,7 @@ Python package manager for virtual environments. It creates a virtualenv in a st
 
 ## Usage
 ### Setup new project or project on new machine
-| Task | Task          | With virtualenvwrapper | __With pipenv__   |
+| Task | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
 | Setup new virtualenv | $ mkvirtualenv [project] | $ pipenv (--three OR --two) |
 | Install all packages in a virtualenv | $ pip install -r requirements.txt | $ pipenv install --dev |
