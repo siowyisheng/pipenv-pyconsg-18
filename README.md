@@ -1,10 +1,10 @@
 # Pipenv
-Package manager for virtual environments
-creates a virtualenv in a standard location.
-Automatically adds/removes packages to a Pipfile when they are un/installed.
+Package manager for virtual environments creates a virtualenv in a standard location. It automatically adds/removes packages to a Pipfile when they are un/installed.
 
-#### `Pipfile` becomes the development `requirements.txt`
-#### `Pipfile.lock` becomes the production `requirements.txt`
+
+## Concept
+`Pipfile` becomes the development `requirements.txt`
+`Pipfile.lock` becomes the production `requirements.txt`
 
 
 ## Most common tasks
