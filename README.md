@@ -3,10 +3,8 @@ Package manager for virtual environments
 creates a virtualenv in a standard location.
 Automatically adds/removes packages to a Pipfile when they are un/installed.
 
-
-Pipfile
-Pipfile.lock
-replace requirements.txt
+#### `Pipfile` becomes the development `requirements.txt`
+#### `Pipfile.lock` becomes the production `requirements.txt`
 
 | Task          | With virtualenvwrapper | With pipenv   |
 |---------------|---------------|-------|
@@ -20,7 +18,7 @@ replace requirements.txt
 | Remove a project dependency only | (activated) $ pip uninstall  | (activated) $ pip uninstall |
 | Remove a project dependency and its sub-dependencies | _not able_ | $ pipenv uninstall [module] |
 | Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
-
+| Fix project dependencies | $ pip freeze > requirements.txt | $ pipenv lock |
 
 $ pipenv graph
 $ pipenv install -e
@@ -36,12 +34,6 @@ pipenv --python 3.6|2.7
 pipenv lock
 pipenv shell
 pipenv freeze
-
-## Install Packages from Pipfile
-
-$ pipenv install
-$ pipenv install --dev
-
 
 Locate the virtualenv:
 
