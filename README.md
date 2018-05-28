@@ -1,17 +1,10 @@
 ![pipenv logo](https://i.imgur.com/R1qf6Vw.png "logo text")
 
-Package manager for virtual environments creates a virtualenv in a standard location. It automatically adds/removes packages to a Pipfile when they are un/installed.
-
+Python package manager for virtual environments. It creates a virtualenv in a standard location and automatically adds/removes packages to a Pipfile when they are [un]installed.
 
 ## Concept
 * `Pipfile` becomes the development `requirements.txt`
 * `Pipfile.lock` becomes the production `requirements.txt`
-
-
-## Need
-* Update top-level dependencies
-* Fix all production dependencies
-
 
 ### Setup new project
 | Task          | With virtualenvwrapper | __With pipenv__   |
