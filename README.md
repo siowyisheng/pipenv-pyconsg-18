@@ -1,3 +1,4 @@
+![pipenv logo](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 # Pipenv
 Package manager for virtual environments creates a virtualenv in a standard location. It automatically adds/removes packages to a Pipfile when they are un/installed.
 
@@ -32,7 +33,7 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 ### Add package
 | Task          | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
-| Install a project dependency | (activated) $ pip install (package) | (activated) $ pip install (package) |
+| Install a project dependency | (activated) $ pip install (package) | $ pipenv install (package) |
 | Install a project dev dependency | _not able_ | $ pipenv install pytest --dev |
 | Install local package | $ pip install (path) | $ pipenv install -e (path) |
 * Note: pipenv automatically adds the new package to the Pipfile.
@@ -40,8 +41,8 @@ Package manager for virtual environments creates a virtualenv in a standard loca
 ### Remove package
 | Task          | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
-| Remove a project dependency and sub-dependencies | _not able_ | $ pipenv uninstall [module] |
-| Remove a project dependency only | (activated) $ pip uninstall  | (activated) $ pip uninstall |
+| Remove a project dependency and sub-dependencies | _not able_ | $ pipenv uninstall [package] |
+| Remove a project dependency only | (activated) $ pip uninstall (package) | (activated) $ pip uninstall (package) |
 | Remove all project dependencies | $ pip uninstall -r requirements.txt -y | $ pipenv uninstall --all
 * Note: pipenv automatically removes the removed packages from the Pipfile.
 
