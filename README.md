@@ -25,7 +25,7 @@ Let's cd into the project1 folder.
 $ cd project1
 ```
 
-Now, let's run `$ pipenv install django==1.11 --two` to install django into a newly created virtual environment. The `--two` option tells pipenv that we want to use Python 2.
+Now, let's run `pipenv install django==1.11 --two` to install django into a newly created virtual environment. The `--two` option tells pipenv that we want to use Python 2.
 
 ```
 $ pipenv install django==1.11 --two
@@ -70,7 +70,7 @@ Next, Django 1.11 was installed in the virtual environment and Pipenv added it t
 
 Pipenv also created a `Pipfile.lock`, which stores the exact version of the project's direct dependencies and sub-dependencies. On the production machine, we can run `pipenv sync` to install the exact package versions specified by `Pipfile.lock`, so that it will always be safe from breaking updates, even twenty years from now.
 
-Just like that, our virtual environment is all ready to go! :smile: We can continue to do `$ pipenv install pytest` and it will be installed into the existing virtual environment and added to the `Pipfile` and `Pipfile.lock`.
+Just like that, our virtual environment is all ready to go! :smile: We can continue to do `pipenv install pytest` and it will be installed into the existing virtual environment and added to the `Pipfile` and `Pipfile.lock`.
 
 ```
 $ pipenv install pytest
@@ -106,7 +106,7 @@ Spawning environment shell (/bin/zsh). Use 'exit' to leave.
 $
 ```
 
-We can confirm that the project is using Django 1.11 with `$ pip show django`.
+We can confirm that the project is using Django 1.11 with `pip show django`.
 
 ```
 $ pip show django
