@@ -8,22 +8,35 @@ A Python package manager using virtual environments. It creates virtualenvs in a
 Different projects require different versions of Python and different package versions. A virtual environment is simply a set of modules and a version of Python. We can manage package versions between projects easily by having each project use its own virtual environment.
 
 ## Step by step
-Imagine you are a developer in a web agency and you have a project(called old_project) with an using Python 2.7 and Django 1.11 and want to start another project(new_project) with Python 3 and Django 2.0. We can manage both projects concurrently with pipenv. :relaxed:
+Imagine you are a developer in a web agency and you have a project(called project1) with an using Python 2.7 and Django 1.11 and want to start another project(project2) with Python 3 and Django 2.0. We can manage both projects concurrently with pipenv. :relaxed:
 
-First, open up any shell and go into old_project's project folder.
+First, let's open up any shell and create a new folder called 'workshop', and two other folders within it called 'project2' and 'project2'. 
 
-Now, we just run `$ pipenv install django==1.11 --two` to install django into a newly created virtual environment. The `--two` option tells pipenv that we want to use Python 2.
+```
+$ mkdir workshop
+$ cd workshop
+$ mkdir project1
+$ mkdir project2
+```
+
+Let's cd into the project1 folder.
+
+```
+$ cd project1
+```
+
+Now, let's run `$ pipenv install django==1.11 --two` to install django into a newly created virtual environment. The `--two` option tells pipenv that we want to use Python 2.
 
 ```
 $ pipenv install django==1.11 --two
 Creating a virtualenv for this project…
 Using /usr/local/bin/python2 (2.7.14) to create virtualenv…
 ⠋Running virtualenv with interpreter /usr/local/bin/python2
-New python executable in /Users/yisheng/.virtualenvs/pipenvstuff-d4NfzhET/bin/python2.7
-Also creating executable in /Users/yisheng/.virtualenvs/pipenvstuff-d4NfzhET/bin/python
+New python executable in /Users/yisheng/.virtualenvs/project1-d4NfzhET/bin/python2.7
+Also creating executable in /Users/yisheng/.virtualenvs/project1-d4NfzhET/bin/python
 Installing setuptools, pip, wheel...done.
 
-Virtualenv location: /Users/yisheng/.virtualenvs/pipenvstuff-d4NfzhET
+Virtualenv location: /Users/yisheng/.virtualenvs/project1-d4NfzhET
 Creating a Pipfile for this project…
 Installing django==1.11…
 ...
@@ -39,11 +52,25 @@ To activate this project's virtualenv, run the following:
  $ pipenv shell
 ```
 
-This first installed a copy of Python 2.7 (which was already on my machine), together with some basic packages, to a new folder(the virtual environment), and it tells me the location of that folder. It also created a `Pipfile` for the project, which stores the project's direct dependencies(and Python version). Anyone else working on this project will use the `Pipfile` to install all necessary dependencies.
+Several things happened here, so let's go through each of them. The command installed a copy of Python 2.7 (which was already on my machine), together with some basic packages, to a new folder(the virtual environment), and it tells me the location of that folder.
 
-It also installed the right version of Django, automatically added it to the Pipfile, and also automatically created a `Pipfile.lock`, which stores the exact version of the project's direct dependencies and sub-dependencies. We will use the `Pipfile.lock` to ensure that the production version of the app uses these exact package versions and is safe from any breaking updates.
+```
+Virtualenv location: /Users/yisheng/.virtualenvs/project1-d4NfzhET
+```
 
-Just like that, our virtual environment is all ready to go! :smile: We can continue to do `$ pipenv install pytest` and it will be installed into the existing virtual environment, Pipfile and Pipfile.lock.
+It's within `.virtualenvs/` in the user folder. The first half of the virtual environment's name is the project folder's name (where we ran `pipenv install django==1.11 --two`). The second half(d4NfzhET) is a string hashed from the project folder's path, so if you delete the virtual environment, and create it again from the same project folder, it will use the same folder name.
+
+The command also created a `Pipfile` for the project, which stores the project's direct dependencies(and Python version). Anyone else working on this project will use the `Pipfile` to install all necessary dependencies.
+
+```
+Creating a Pipfile for this project…
+```
+
+Next, Django 1.11 was installed in the virtual environment and Pipenv added it to the Pipfile.
+
+Pipenv also created a `Pipfile.lock`, which stores the exact version of the project's direct dependencies and sub-dependencies. On the production machine, we can run `pipenv sync` to install the exact package versions specified by `Pipfile.lock`, so that it will always be safe from breaking updates, even twenty years from now.
+
+Just like that, our virtual environment is all ready to go! :smile: We can continue to do `$ pipenv install pytest` and it will be installed into the existing virtual environment and added to the `Pipfile` and `Pipfile.lock`.
 
 ```
 $ pipenv install pytest
@@ -59,12 +86,22 @@ Installing dependencies from Pipfile.lock (fbff64)…
 $ 
 ```
 
-Whenever we want to work on the project, we use `$ pipenv shell` anywhere within the old_project's project folder. This _activates_ the virtual environment, and uses the Python version and packages from the virtual environment only, instead of packages installed globally on our machine. 
+We can automatically check for updates and upgrade our packages with the following workflow:
+
+```
+$ pipenv update --outdated
+[any outdated packages appear here]
+$ pipenv update
+```
+
+Do note that packages which have their exact version specified, like our `Django==1.11` will _not_ be updated with `pipenv update`.
+
+Whenever we want to work on the project, we use `$ pipenv shell` anywhere within the project1 folder. This _activates_ the virtual environment, and uses the Python version and packages from the virtual environment only, instead of packages installed globally on our machine. 
 
 ```
 $ pipenv shell
 Spawning environment shell (/bin/zsh). Use 'exit' to leave.
-. /Users/yisheng/.virtualenvs/pipenvstuff-d4NfzhET/bin/activate
+. /Users/yisheng/.virtualenvs/project1-d4NfzhET/bin/activate
 ...
 $
 ```
@@ -81,7 +118,21 @@ $
 
 Sure enough, we're using Django 1.11. 
 
-We can easily create the virtual environment for new_project in the same way. First, we use `$ exit` to _deactivate_ the virtual environment, and then go into new_project's project folder and use `$ pipenv install django=2.0 --three` to setup a new virtual environment and install Django. 
+We can easily create the virtual environment for project2 in the same way. 
+
+First, we use:
+
+```
+$ exit
+```
+
+to _deactivate_ the virtual environment, and then go into the project2 folder and use:
+
+```
+$ pipenv install django=2.0 --three
+```
+
+to setup a new virtual environment and install Django. 
 
 Now, both your projects have their separate virtual environments and no longer need to share packages or Python versions. :sunglasses:
 
