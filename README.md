@@ -116,23 +116,30 @@ Version: 1.11
 $ 
 ```
 
-Sure enough, we're using Django 1.11. 
-
-We can easily create the virtual environment for project2 in the same way. 
-
-First, we use:
+Sure enough, we're using Django 1.11. We can run:
 
 ```
 $ exit
 ```
 
-to _deactivate_ the virtual environment, and then go into the project2 folder and use:
+to _deactivate_ the virtual environment,
+
+Instead of activating and deactivating the virtual environment, we can also use `pipenv run [command]` to run the command from the virtual environment, like so:
 
 ```
-$ pipenv install django=2.0 --three
+$ pipenv run pip show django
 ```
 
-to setup a new virtual environment and install Django. 
+This can be especially useful for writing shell scripts (or a crontab).
+
+We can easily create the virtual environment for project2 in the same way. We can run:
+
+```
+$ cd project2
+$ pipenv install django==2.0 --three
+```
+
+to setup a new virtual environment with Python 3 and install Django 2.0. 
 
 Now, both your projects have their separate virtual environments and no longer need to share packages or Python versions. :sunglasses:
 
