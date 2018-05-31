@@ -10,6 +10,8 @@ Different projects require different versions of Python and different package ve
 ## Step by step
 Imagine you are a developer in a web agency and you have a project(called project1) with an using Python 2.7 and Django 1.11 and want to start another project(project2) with Python 3 and Django 2.0. We can manage both projects concurrently with pipenv. :relaxed:
 
+For this step by step tutorial, we will need to have Python 2, Python 3 and [pipenv](https://github.com/pypa/pipenv#installation) installed. You can also just use Python 3, and replace --two with --three in the structions.
+
 First, let's open up any shell and create a new folder called 'workshop', and two other folders within it called 'project1' and 'project2'. 
 
 ```
