@@ -2,7 +2,27 @@
 ---
 A Python package manager using virtual environments. It creates virtualenvs in a standard location and automatically adds/removes packages to a Pipfile when they are [un]installed.
 
-# New to virtual environments? :grimacing: (or skip ahead)
+# For anyone new to virtual environments
+* [Installation](#installation)
+* [Migrating to Pipfile from requirements.txt](#migrating-to-pipfile-from-requirementstxt)
+* [Installation](#installation)
+* [Installation](#installation)
+
+# For developers using other virtualenv tools
+* [Installation](#installation)
+* [Installation](#installation)
+* [Installation](#installation)
+
+## Installation
+```
+$ pip install pipenv
+```
+
+## Migrating to Pipfile from requirements.txt
+
+## Advantages of Pipenv over similar tools
+
+
 
 ## Virtual environment basics
 Different projects require different versions of Python and different package versions. A virtual environment is simply a set of modules and a version of Python. We can manage package versions between projects easily by having each project use its own virtual environment.
