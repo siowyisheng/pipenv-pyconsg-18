@@ -4,25 +4,20 @@ A Python package manager using virtual environments. It creates virtualenvs in a
 
 # For anyone new to virtual environments
 * [Installation](#installation)
-* [Migrating to Pipfile from requirements.txt](#migrating-to-pipfile-from-requirementstxt)
-* [Installation](#installation)
-* [Installation](#installation)
+* [Step by step tutorial](#step-by-step-tutorial)
 
 # For developers using other virtualenv tools
-* [Installation](#installation)
-* [Installation](#installation)
-* [Installation](#installation)
+* [Advantages of Pipenv over similar tools](#advantages-of-pipenv-over-similar-tools)
+* [Migrating to Pipfile from requirements.txt](#migrating-to-pipfile-from-requirementstxt)
+* [Common usage](#common-usage)
+
+
+# For anyone new to virtual environments
 
 ## Installation
 ```
 $ pip install pipenv
 ```
-
-## Migrating to Pipfile from requirements.txt
-
-## Advantages of Pipenv over similar tools
-
-
 
 ## Virtual environment basics
 Different projects require different versions of Python and different package versions. A virtual environment is simply a set of modules and a version of Python. We can manage package versions between projects easily by having each project use its own virtual environment.
@@ -166,14 +161,24 @@ to setup a new virtual environment with Python 3 and install Django 2.0.
 Now, both your projects have their separate virtual environments and no longer need to share packages or Python versions. :sunglasses:
 
 
-# Migrating from venv / virtualenvwrapper?
+# For developers using other virtualenv tools
 
-## Replacing the traditional requirements.txt
-* `Pipfile` becomes the development `requirements.txt`
-* `Pipfile.lock` becomes the production `requirements.txt`
+## Advantages of Pipenv over similar tools
+* Separate your project development dependencies (which should be upgraded) with the production dependency exact versions required (which should be deterministic)
+* Manage all your virtualenvs from one place (not like with venv)
+* Update package list automatically in Pipfile - no more `pip freeze` > requirements.txt
+* Update project packages easily with `pipenv update`
+* See top-level dependencies clearly with `pipenv graph`
+* Mark out developer dependencies easily with `pipenv install [my_package] --dev`
+* Prune out old, unused dependencies with `pipenv clean`
 
+## Migrating to Pipfile from requirements.txt
+```
+pipenv install -r requirements.txt
+```
+This creates your Pipfile for you from requirements.txt. You should manually edit the Pipfile to remove exact versioning, which should only be maintained for the Pipfile.lock.
 
-## Usage
+## Common usage
 ### Setup new project or project on new machine
 | Task | With virtualenvwrapper | __With pipenv__   |
 |---------------|---------------|-------|
